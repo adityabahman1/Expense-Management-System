@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:8000"; // Change this to your deployed backend URL
+export const BASE_URL = "https://expense-management-system-production-c721.up.railway.app"; // Change this to your deployed backend URL
 
 export const API_PATHS = {
     AUTH: {

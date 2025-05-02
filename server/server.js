@@ -30,7 +30,7 @@ app.use("/api/v1/dashboard",dashboardRoutes);
 //allows frontend or user to acces the file in the browser using URL
 app.use("/uploads",express.static(path.join(__dirname,"uploads")));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT,() =>{
     console.log(`Server is runnning on the port ${PORT}`)
