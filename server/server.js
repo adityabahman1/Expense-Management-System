@@ -14,24 +14,26 @@ app.use(express.json());
 
 app.use(
     cors({
-        origin : process.env.CLIENT_URL || "*",
-        methods : ["GET","PUT","POST","DELETE"],
-        allowedHeaders : ["Content-type","Authorization"]
+        origin: process.env.CLIENT_URL || "*",
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+        credentials: true,
     })
 );
 
+
 connectDB();
 
-app.use("/api/v1/auth",authRoutes);
-app.use("/api/v1/income",incomeRoutes);
-app.use("/api/v1/expense",expenseRoutes);
-app.use("/api/v1/dashboard",dashboardRoutes);
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/income", incomeRoutes);
+app.use("/api/v1/expense", expenseRoutes);
+app.use("/api/v1/dashboard", dashboardRoutes);
 
 //allows frontend or user to acces the file in the browser using URL
-app.use("/uploads",express.static(path.join(__dirname,"uploads")));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const PORT = process.env.PORT || 8000;
 
-app.listen(PORT,() =>{
+app.listen(PORT, () => {
     console.log(`Server is runnning on the port ${PORT}`)
 });
