@@ -21,15 +21,8 @@ app.use(
     })
 );
 
-// Middleware to ensure DB connection for serverless
-app.use(async (req, res, next) => {
-    try {
-        await connectDB();
-        next();
-    } catch (error) {
-        res.status(500).json({ message: "Database connection failed", error: error.message });
-    }
-});
+// Connect to database on startup
+connectDB();
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/income", incomeRoutes);
